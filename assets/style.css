@@ -26,7 +26,7 @@
     font-style: normal;
 }
 
-body {
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -35,4 +35,10 @@ body {
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+}
+
+:root {
+    --main-color: #DF3E55;
+    --text-color: #120E38;
+    --bg-color: #fff;
 }
