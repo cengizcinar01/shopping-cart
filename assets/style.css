@@ -110,3 +110,9 @@ header {
     border: 1px solid var(--text-color);
     transition: 0.4s;
 }
+
+.product-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
