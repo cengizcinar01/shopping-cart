@@ -53,6 +53,10 @@ body {
     width: 100%;
 }
 
+.section {
+    padding: 4rem 0 3rem;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -73,4 +77,15 @@ header {
     font-size: 1.1rem;
     color: var(--text-color);
     font-weight: 400;
+}
+
+#cart-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
 }
