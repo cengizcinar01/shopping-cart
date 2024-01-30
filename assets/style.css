@@ -53,7 +53,7 @@ body {
     width: 100%;
 }
 
-.section {
+section {
     padding: 4rem 0 3rem;
 }
 
@@ -88,4 +88,8 @@ header {
     font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
+}
+
+.shop {
+    margin-top: 2rem;
 }
