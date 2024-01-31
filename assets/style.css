@@ -63,7 +63,8 @@ header {
     left: 0;
     width: 100%;
     background: var(--bg-color);
-    box-shadow: 0 1px 4px hsl(0 4% 15% / 10%)
+    box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
+    z-index: 100;
 }
 
 .nav {
@@ -136,4 +137,8 @@ header {
     color: var(--bg-color);
     padding: 10px;
     cursor: pointer;
+}
+
+.add-cart:hover {
+    background: hsl(249, 32%, 17%);
 }
