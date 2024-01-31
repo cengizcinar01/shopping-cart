@@ -18,7 +18,7 @@ if (document.readyState == 'loading') {
 
 function ready() {
     // Remove products from cart
-    let removeCartButtons = document.getElementByClassName('cart-remove');
+    let removeCartButtons = document.getElementsByClassName('cart-remove');
     console.log(removeCartButtons);
     for (let i = 0; i < removeCartButtons.length; i++) {
         let button = removeCartButtons[i];
@@ -29,19 +29,22 @@ function ready() {
 function removeCartItem(event) {
     let buttonClicked = event.target;
     buttonClicked.parentElement.remove();
+    updateTotalPrice();
 }
 
 // Update total price
 function updateTotalPrice() {
-    let cartContent = document.getElementByClassName('cart-content')[0];
-    let cartBoxes = cartContent.getElementByClassName('cart-box');
+    let cartContent = document.getElementsByClassName('cart-content')[0];
+    let cartBoxes = cartContent.getElementsByClassName('cart-box');
     let total = 0;
     for (let i = 0; i < cartBoxes.length; i++) {
         let cartBox = cartBoxes[i];
-        let priceElement = cartBox.getElementByClassName('cart-price')[0];
-        let quantityElement = cartBox.getElementByClassName('cart-quantity')[0];
-        let price = parseFloat(priceElement.innerText.replace("", "€"));
+        let priceElement = cartBox.getElementsByClassName('cart-price')[0];
+        let quantityElement = cartBox.getElementsByClassName('cart-quantity')[0];
+        let price = parseFloat(priceElement.innerText.replace('€', ''));
         let quantity = quantityElement.value;
-        total = total + price * quantity;
+        total += price * quantity;
     }
+
+    document.getElementsByClassName('total-price')[0].innerText = total + '€';
 }
