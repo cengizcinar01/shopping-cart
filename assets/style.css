@@ -161,10 +161,12 @@ header {
 .total-title {
     font-size: 1rem;
     font-weight: 600;
+    margin-top: 0.5rem;
 }
 
 .total-price {
     margin-left: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .btn-buy {
