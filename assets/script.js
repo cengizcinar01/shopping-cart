@@ -29,6 +29,11 @@ function ready() {
         let input = quantityInputs[i];
         input.addEventListener('change', quantityChanged);
     }
+    let addCart = document.getElementsByClassName('add-cart');
+    for (let i = 0; i < addCart.length; i++) {
+        let button = addCart[i];
+        button.addEventListener('click', addCartClicked);
+    }
 }
 
 function removeCartItem(event) {
@@ -43,6 +48,27 @@ function quantityChanged(event) {
         input.value = 1;
     }
     updateTotalPrice();
+}
+
+// Add products to cart
+function addCartClicked(event) {
+    let button = event.target;
+    let shopProducts = button.parentElement;
+    let title = shopProducts.getElementsByClassName('product-title')[0].innerText;
+    let price = shopProducts.getElementsByClassName('price')[0].innerText;
+    let productImg = shopProducts.getElementsByClassName('product-img')[0].src;
+    addProductToCart(title, price, productImg);
+    updateTotalPrice();
+}
+
+function addProductToCart(title, price, productImg) {
+    let cartShopBox = document.createElement('div');
+    //cartShopBox.classList.add('cart-box');
+    let cartItems = document.getElementsByClassName('cart-content')[0];
+    let cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
+    for (let i = 0; i < cartItemsNames.length; i++) {
+        alert('This item is already in your cart');
+    }
 }
 
 // Update total price
