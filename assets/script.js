@@ -34,6 +34,15 @@ function ready() {
         let button = addCart[i];
         button.addEventListener('click', addCartClicked);
     }
+    document.getElementsByClassName('btn-buy')[0].addEventListener('click', buyButtonClicked);
+}
+
+function buyButtonClicked() {
+    alert('Order successfully placed');
+    let cartContent = document.getElementsByClassName('cart-content')[0];
+    while (cartContent.hasChildNodes()) {
+        cartContent.removeChild(cartContent.firstChild);
+    }
 }
 
 function removeCartItem(event) {
