@@ -38,10 +38,16 @@ function ready() {
 }
 
 function buyButtonClicked() {
-    alert('Order successfully placed');
     let cartContent = document.getElementsByClassName('cart-content')[0];
-    while (cartContent.hasChildNodes()) {
-        cartContent.removeChild(cartContent.firstChild);
+    let cartItems = cartContent.getElementsByClassName('cart-box');
+    if (cartItems.length === 0) {
+        alert('Your cart is empty');
+    } else {
+        alert('Order successfully placed');
+        while (cartContent.hasChildNodes()) {
+            cartContent.removeChild(cartContent.firstChild);
+        }
+        document.getElementsByClassName('total-price')[0].innerText = '0,00 €';
     }
 }
 
