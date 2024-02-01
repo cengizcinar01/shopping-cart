@@ -67,6 +67,7 @@ function quantityChanged(event) {
 
 // Add products to cart
 function addCartClicked(event) {
+    isAddingToCart = true;
     let button = event.target;
     let shopProducts = button.parentElement;
     let title = shopProducts.getElementsByClassName('product-title')[0].innerText;
@@ -74,6 +75,9 @@ function addCartClicked(event) {
     let productImg = shopProducts.getElementsByClassName('product-img')[0].src;
     addProductToCart(title, price, productImg);
     updateTotalPrice();
+    setTimeout(() => {
+        isAddingToCart = false;
+    }, 100);
 }
 
 function addProductToCart(title, price, productImg) {
@@ -122,3 +126,14 @@ function updateTotalPrice() {
     total = total.toFixed(2).replace('.', ',');
     document.getElementsByClassName('total-price')[0].innerText = total + ' €';
 }
+
+document.addEventListener('click', function (event) {
+    let clickInsideCart = cart.contains(event.target);
+    let clickOnCartIcon = cartIcon.contains(event.target);
+
+    if (!clickInsideCart && !clickOnCartIcon && !isAddingToCart) {
+        if (cart.classList.contains('active')) {
+            cart.classList.remove('active');
+        }
+    }
+});
