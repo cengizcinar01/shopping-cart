@@ -40,16 +40,20 @@ function ready() {
 }
 
 function buyButtonClicked() {
-    let cartContent = document.getElementsByClassName('cart-content')[0];
-    let cartItems = cartContent.getElementsByClassName('cart-box');
-    if (cartItems.length === 0) {
+    const cartContent = document.querySelector('.cart-content');
+    const cartItems = cartContent?.getElementsByClassName('cart-box');
+
+    if (!cartItems || cartItems.length === 0) {
         alert('Your cart is empty');
     } else {
         alert('Order successfully placed');
-        while (cartContent.hasChildNodes()) {
+        while (cartContent.firstChild) {
             cartContent.removeChild(cartContent.firstChild);
         }
-        document.getElementsByClassName('total-price')[0].innerText = '0,00 €';
+        const totalPriceElement = document.querySelector('.total-price');
+        if (totalPriceElement) {
+            totalPriceElement.innerText = '0,00 €';
+        }
     }
 }
 
