@@ -17,24 +17,26 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    // Remove products from cart
-    let removeCartButtons = document.getElementsByClassName('cart-remove');
-    console.log(removeCartButtons);
-    for (let i = 0; i < removeCartButtons.length; i++) {
-        let button = removeCartButtons[i];
+    const removeCartButtons = document.getElementsByClassName('cart-remove');
+    const quantityInputs = document.getElementsByClassName('cart-quantity');
+    const addCartButtons = document.getElementsByClassName('add-cart');
+
+    Array.from(removeCartButtons).forEach((button) => {
         button.addEventListener('click', removeCartItem);
-    }
-    let quantityInputs = document.getElementsByClassName('cart-quantity');
-    for (let i = 0; i < quantityInputs.length; i++) {
-        let input = quantityInputs[i];
+    });
+
+    Array.from(quantityInputs).forEach((input) => {
         input.addEventListener('change', quantityChanged);
-    }
-    let addCart = document.getElementsByClassName('add-cart');
-    for (let i = 0; i < addCart.length; i++) {
-        let button = addCart[i];
+    });
+
+    Array.from(addCartButtons).forEach((button) => {
         button.addEventListener('click', addCartClicked);
+    });
+
+    const buyButton = document.getElementsByClassName('btn-buy')[0];
+    if (buyButton) {
+        buyButton.addEventListener('click', buyButtonClicked);
     }
-    document.getElementsByClassName('btn-buy')[0].addEventListener('click', buyButtonClicked);
 }
 
 function buyButtonClicked() {
