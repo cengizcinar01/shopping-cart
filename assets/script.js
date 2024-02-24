@@ -58,16 +58,14 @@ function buyButtonClicked() {
 }
 
 function removeCartItem(event) {
-    let buttonClicked = event.target;
+    const buttonClicked = event.target;
     buttonClicked.parentElement.remove();
     updateTotalPrice();
 }
 
 function quantityChanged(event) {
-    let input = event.target;
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1;
-    }
+    const input = event.target;
+    input.value = isNaN(input.value) || input.value <= 0 ? 1 : input.value;
     updateTotalPrice();
 }
 
